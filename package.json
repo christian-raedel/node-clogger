@@ -1,0 +1,38 @@
+{
+  "name": "node-clogger",
+  "version": "0.1.0",
+  "description": "A node.js logging framework.",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "make test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/christian-raedel/node-clogger.git"
+  },
+  "keywords": [
+    "pluggable",
+    "log",
+    "framework"
+  ],
+  "author": "Christian Rädel",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/christian-raedel/node-clogger/issues"
+  },
+  "homepage": "https://github.com/christian-raedel/node-clogger",
+  "dependencies": {
+    "colors": "^0.6.2",
+    "lodash": "^2.4.1",
+    "node-cconf": "git+https://github.com/christian-raedel/node-cconf#v0.3.0",
+    "taffydb": "^2.7.2"
+  },
+  "devDependencies": {
+    "chai": "^1.9.1",
+    "chai-spies": "^0.5.1",
+    "mocha": "^1.21.3"
+  }
+}
