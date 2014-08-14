@@ -43,6 +43,14 @@ describe('CLogger:Transport:Console', function() {
 
         logger.info('%sl%s', 'd', 'c');
     });
+
+    it('should logs with different log levels', function() {
+        var logger = new clogger.CLogger();
+
+        _.forEach(['info', 'warn', 'debug', 'error', 'trace'], function(level) {
+            logger[level]('dlc');
+        }, this);
+    });
 });
 
 describe('CLogger:Transport:CustomFunction', function() {
@@ -108,7 +116,7 @@ describe('CLogger:Transport:LogFile', function() {
                 var filename = __dirname + '/test.log';
                 var logdata = fs.readFileSync(filename, {encoding: 'utf8', mode: 'r'});
                 expect(logdata).to.match(/\[Test\]/);
-                expect(logdata).to.match(/\[INFO\]/);
+                expect(logdata).to.match(/INFO\:/);
                 expect(logdata).to.match(/Dlc/);
                 done();
             } finally {
