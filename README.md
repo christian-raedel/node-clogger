@@ -1,3 +1,4 @@
+[![Build Status](https://travis-ci.org/christian-raedel/node-clogger.svg?branch=master)](https://travis-ci.org/christian-raedel/node-clogger)
 
 # CLogger #
 
