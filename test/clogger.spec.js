@@ -8,6 +8,29 @@ describe('CLogger', function() {
     it('should instanciates', function() {
         expect(new clogger.CLogger()).to.be.an.instanceof(clogger.CLogger);
     });
+
+    it('should extends an existing object with log-functions', function(done) {
+        var called = null
+            , obj = {}
+            , logger = new clogger.CLogger().addTransport(new clogger.transports.CustomFunction({
+                'function': function(args) {
+                    expect(args.timestamp).to.be.above(0);
+                    expect(args.id).to.be.equal('default');
+                    expect(args.level).to.be.equal('info');
+                    expect(args.message).to.be.equal('dlc');
+                    expect(obj._logger).to.be.an.instanceof(clogger.CLogger);
+                    called = true;
+                }
+            }));
+
+        var unextend = logger.extend(obj);
+        obj.info('%sl%s', 'd', 'c');
+        unextend(setTimeout(function() {
+            expect(this._logger).to.be.not.ok;
+            expect(called).to.be.true;
+            done();
+        }, 500));
+    });
 });
 
 describe('CLogger:Transport:Console', function() {
