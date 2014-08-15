@@ -14,7 +14,7 @@ various chainable pre-defined or custom filter-functions.
 ## Installation ##
 
 ```
-npm install --save git+https://github.com/christian-raedel/node-clogger.git#v0.2.1
+npm install --save git+https://github.com/christian-raedel/node-clogger.git#v0.2.2
 ```
 
 ### Testing ###
