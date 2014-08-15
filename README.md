@@ -24,6 +24,16 @@ cd /path/to/node-clogger
 make install test
 ```
 
+### Documentation ###
+
+```
+cd /path/to/node-clogger
+make install docs
+$BROWSER doc/index.html
+```
+or [browse
+online](http://christian-raedel.github.io/node-clogger/index.html)
+
 ## Basic Usage ##
 
 ``` Javascript

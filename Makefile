@@ -1,4 +1,4 @@
-all: clean install test
+all: clean install test docs
 
 install:
 	@echo "************************"
@@ -12,10 +12,24 @@ test:
 	@echo "************************"
 	@./node_modules/.bin/mocha --recursive test/*.spec.js
 
+docs:
+	@echo "************************"
+	@echo "* CREATE DOCUMENTATION *"
+	@echo "************************"
+	@./node_modules/.bin/jsdoc --recurse --destination ./doc lib/*.js lib/transports/*.js README.md
+
+github.io:
+	@echo "************************"
+	@echo "* CREATE DOCUMENTATION *"
+	@echo "* FOR GITHUB.IO        *"
+	@echo "************************"
+	@./node_modules/.bin/jsdoc --recurse --destination ../christian-raedel.github.io/node-clogger lib/*.js lib/transports/*.js README.md
+
 clean:
 	@echo "************************"
 	@echo "* CLEANUP DIRECTORY    *"
 	@echo "************************"
 	-@rm -rf ./node_modules
+	-@rm -rf ./doc
 
-.PHONY: all install test
+.PHONY: all install test docs
