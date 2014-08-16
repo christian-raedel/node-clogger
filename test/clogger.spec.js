@@ -31,6 +31,26 @@ describe('CLogger', function() {
             done();
         }, 500));
     });
+
+    it('should logs only to visible log-levels', function() {
+        var logger = new clogger.CLogger({
+            transports: [
+                new clogger.transports.CustomFunction({
+                    'function': function(args) {
+                        expect(args.level).to.match(/info|warn|trace/);
+                    }
+                })
+            ],
+            visible: ['info', 'warn']
+        });
+
+        logger.info('dlc');
+        logger.warn('dlc');
+        logger.debug('dlc');
+
+        logger.config.getValue('visible').push('trace');
+        logger.trace('dlc');
+    });
 });
 
 describe('CLogger:Transport:Console', function() {
