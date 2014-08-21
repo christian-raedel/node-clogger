@@ -2,7 +2,7 @@
 
 # CLogger #
 
-A [node.js](http://nodejs.org) module with various configurable and
+A [node.js](http://nodejs.org) logging module with various configurable and
 extendable transports. As per default, the **CLogger** prints its
 colored messages to the node-console, but it can be configured to
 logs to a [TaffyDB](http://www.taffydb.com) instance, a log-file

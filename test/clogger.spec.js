@@ -48,7 +48,7 @@ describe('CLogger', function() {
         logger.warn('dlc');
         logger.debug('dlc');
 
-        logger.config.getValue('visible').push('trace');
+        logger.config.getValue('visible', ['info', 'warn', 'trace']);
         logger.trace('dlc');
     });
 });
