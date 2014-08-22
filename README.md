@@ -14,7 +14,7 @@ various chainable pre-defined or custom filter-functions.
 ## Installation ##
 
 ```
-npm install --save git+https://github.com/christian-raedel/node-clogger.git#v0.2.2
+npm install --save git+https://github.com/christian-raedel/node-clogger.git#v0.3.3
 ```
 
 ### Testing ###
@@ -37,10 +37,10 @@ online](http://christian-raedel.github.io/node-clogger/index.html)
 ## Basic Usage ##
 
 ``` Javascript
-var clogger = require('node-clogger');
+var CLogger = require('node-clogger');
 
 // Create a new CLogger instance with reasonable defaults.
-var logger = new clogger.CLogger();
+var logger = new CLogger();
 logger.log('info', 'log #1');
 logger.debug('log #%d', 2);
 logger.error('some error message: %s', 'fail...');
@@ -49,9 +49,9 @@ logger.error('some error message: %s', 'fail...');
 // and a log-file. The log-file name is returned by a custom
 // filter-functions, just as the logger-id in the console output
 // (which prints 'server' in reverse).
-var logger = new clogger.CLogger('server', {
+var logger = new CLogger('server', {
     transports: [
-        new clogger.transports.LogFile({
+        new CLogger.transports.LogFile({
             'filename': '{{filename}}.log',
             filters: {
                 filename: function() {
@@ -59,7 +59,7 @@ var logger = new clogger.CLogger('server', {
                 }
             }
         }),
-        new clogger.transports.Console({
+        new CLogger.transports.Console({
             'colors': {
                 'info': 'grey',
                 'warn': 'yellow',
