@@ -55,7 +55,8 @@ describe('CLogger', function() {
 
 describe('CLogger:Transport:Console', function() {
     it('should logs to a console', function() {
-        var logger = new CLogger('test', {
+        var logger = new CLogger({
+            name: 'test',
             transports: [
                 new CLogger.transports.Console({
                     'colors': {
@@ -98,7 +99,8 @@ describe('CLogger:Transport:Console', function() {
 
 describe('CLogger:Transport:CustomFunction', function() {
     it('should logs to a custom function', function(done) {
-        var logger = new CLogger('test', {
+        var logger = new CLogger({
+            name: 'test',
             transports: [
                 new CLogger.transports.CustomFunction({
                     'function': function customLog(args) {
@@ -119,7 +121,8 @@ describe('CLogger:Transport:CustomFunction', function() {
 describe('CLogger:Transport:TaffyDb', function() {
     it('should logs to a TaffyDb instance', function() {
         var targetdb = taffydb()
-            , logger = new CLogger('test', {
+            , logger = new CLogger({
+                name: 'test',
                 transports: [
                     new CLogger.transports.TaffyDb({
                         targetdb: targetdb
@@ -139,7 +142,8 @@ describe('CLogger:Transport:TaffyDb', function() {
 
 describe('CLogger:Transport:LogFile', function() {
     it('should logs to a logfile', function(done) {
-        var logger = new CLogger('test', {
+        var logger = new CLogger({
+                name: 'test',
                 transports: [
                     new CLogger.transports.LogFile({
                         'filename': __dirname + '/test.log'
