@@ -48,7 +48,7 @@ describe('CLogger', function() {
         logger.warn('dlc');
         logger.debug('dlc');
 
-        logger.config.getValue('visible', ['info', 'warn', 'trace']);
+        logger.config.setValue('visible', ['info', 'warn', 'trace']);
         logger.trace('dlc');
     });
 });
@@ -61,7 +61,7 @@ describe('CLogger:Transport:Console', function() {
                     'colors': {
                         'info': 'yellow'
                     },
-                    'format': '\t[{{value:timestamp|datetime}}] [{{value:id}}] - [{{value:level|uppercase|colorize}}] : {{value:message|redish}}',
+                    'format': '\t[{{timestamp|datetime}}] [{{id}}] - [{{level|uppercase|colorize}}] : {{message|redish}}',
                     filters: {
                         datetime: function(value) {
                             expect(value).to.be.above(0);
@@ -142,12 +142,7 @@ describe('CLogger:Transport:LogFile', function() {
         var logger = new CLogger('test', {
                 transports: [
                     new CLogger.transports.LogFile({
-                        'filename': '{{dirname}}/test.log',
-                        filters: {
-                            dirname: function() {
-                                return __dirname;
-                            }
-                        }
+                        'filename': __dirname + '/test.log'
                     })
                 ]
             });
