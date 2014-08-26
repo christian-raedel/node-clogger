@@ -88,12 +88,19 @@ describe('CLogger:Transport:Console', function() {
         logger.info('%sl%s', 'd', 'c');
     });
 
-    it('should logs with different log levels', function() {
+    it('should logs with different log levels', function(done) {
+        this.timeout(3000);
+
         var logger = new CLogger();
 
         _.forEach(['info', 'warn', 'debug', 'error', 'trace'], function(level) {
             logger[level]('dlc');
         }, this);
+        
+        setTimeout(function() {
+            logger.info('dlc');
+            done();
+        }, 2000);
     });
 });
 
