@@ -59,7 +59,7 @@ describe('CLogger:Transport:Console', function() {
             name: 'test',
             transports: [
                 new CLogger.transports.Console({
-                    'colors': {
+                    'theme': {
                         'info': 'yellow'
                     },
                     'format': '\t[{{timestamp|datetime}}] [{{id}}] - [{{level|uppercase|colorize}}] : {{message|redish}}',
@@ -73,7 +73,7 @@ describe('CLogger:Transport:Console', function() {
                             return value.toUpperCase();
                         },
                         colorize: function(value) {
-                            var colors = this.config.getValue('colors');
+                            var colors = this.config.getValue('theme');
                             expect(colors.info).to.be.equal('yellow');
                             return value.toString()[colors.info];
                         },

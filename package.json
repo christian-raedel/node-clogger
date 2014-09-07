@@ -1,6 +1,6 @@
 {
   "name": "node-clogger",
-  "version": "0.2.2",
+  "version": "0.2.3",
   "description": "A node.js logging framework.",
   "main": "index.js",
   "directories": {
@@ -26,14 +26,16 @@
   "homepage": "https://github.com/christian-raedel/node-clogger",
   "dependencies": {
     "lodash": "^2.4.1",
-    "node-cconf": "git+https://github.com/christian-raedel/node-cconf",
+    "node-cconf": "git+https://github.com/christian-raedel/node-cconf.git",
     "node-cplate": "git+https://github.com/christian-raedel/node-cplate.git",
     "taffydb": "^2.7.2"
   },
   "devDependencies": {
     "chai": "^1.9.1",
     "chai-spies": "^0.5.1",
+    "eyes": "^0.1.8",
     "jsdoc": "^3.3.0-alpha9",
+    "memwatch": "^0.2.2",
     "mocha": "^1.21.3"
   }
 }
